@@ -58,7 +58,7 @@ function connectDB() {
     $port = '5432';
     $user = 'postgres';
     $password = 'admin';
-    $dbname = 'photogallery';
+    $dbname = 'test-app';
 
 
     $db = new PDO("pgsql:host={$host};port={$port};user={$user};password={$password};dbname={$dbname}");
@@ -75,19 +75,16 @@ function connectDB() {
 // Проверка роутера на валидность
 function isValidRouter($router) {
     return in_array($router, array(
-        'photo',
-        'user',
-        'detailpost',
-        'rating',
+        'table',
     ));
 }
 
 
 // Проверка, существует ли пост с таким id
-function isExistsPostById($pdo, $id) {
-    $query = 'SELECT photo_id FROM photo WHERE photo_id=:photo_id';
+function isExistsNodeById($pdo, $id, $fId, $table) {
+    $query = 'SELECT '.$fId.' FROM '.$table.' WHERE '.$fId.'=:node_id';
     $data = $pdo->prepare($query);
-    $data->bindParam(':photo_id', $id, PDO::PARAM_INT);
+    $data->bindParam(':node_id', $id, PDO::PARAM_INT);
     $data->execute();
 
     return count($data->fetchAll()) === 1;
