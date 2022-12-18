@@ -1,0 +1,20 @@
+@import url('assets/fonts/fonts_include.css');
+
+/* :root {
+
+} */
+
+body {
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 25% auto;
+    background-color: var(--main-bg);
+    max-height: 100vh;
+    overflow: hidden;
+    font-family: 'Nunito Sans';
+}
+
+body * {
+    box-sizing: border-box;
+}
