@@ -38,6 +38,7 @@ table.main-table {
     display: flex;
     justify-content: flex-end;
     gap: 16px;
+    grid-column: span 2;
 }
 
 .btn {
@@ -57,4 +58,18 @@ table.main-table {
 .btn.btn_danger {
     color: #de0f00;
     background: #ffe3e1;
+}
+
+form.table-form {
+    display: grid;
+    padding: 20px;
+    grid-template-columns: 20% auto;
+    border-radius: 10px;
+    gap: 5px;
+}
+
+input[type=text], input[type=number], input[type=date] {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
 }

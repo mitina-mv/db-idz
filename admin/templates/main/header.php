@@ -13,6 +13,9 @@ foreach($config['menu'] as $menu){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Заголовок страницы</title>
 
+    <script src="/admin/assets/hystmodal/hystmodal.min.js"></script>
+    <link rel="stylesheet" href="/admin/assets/hystmodal/hystmodal.min.css">
+
     <link rel="stylesheet" href="/admin/templates/main/style.css">
     <script src="/admin/assets/js/script.js"></script>
 
