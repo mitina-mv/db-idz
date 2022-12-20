@@ -121,4 +121,10 @@ window.addEventListener('DOMContentLoaded', () => {
             }
         })
     })
+
+    let btnMenu = document.querySelector('.menu__burger');
+
+    btnMenu.addEventListener('click', () => {
+        document.querySelector('.main-menu').classList.toggle('active')
+    })
 })

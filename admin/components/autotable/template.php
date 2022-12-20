@@ -88,7 +88,12 @@
 
                 <?php foreach($arParams['fields'] as $key => $field):?>
                     <td class="main-table__tr" data-field='<?=$key?>'>
-                        <?= $row[$key] ?: 'NULL'?>
+                        <?if($row[$key]!== null) {
+                            if(is_bool($row[$key])) echo (int) $row[$key];
+                            else echo $row[$key];
+                        } else {
+                            echo 'NULL';
+                        }?>
                     </td>
                 <?endforeach;?> 
 
@@ -130,6 +135,18 @@
 
                         case 'jsonb':
                             echo "<textarea class='form-item' name='$key'></textarea>";
+                            break;
+
+                        case 'boolean':
+                            echo "<input class='form-item' type='checkbox' name='$key'>";
+                            break;
+
+                        case 'character varying':
+                            if(strpos($key, '_text') !== false || strpos($key, '_name') !== false) {
+                                echo "<textarea class='form-item' name='$key'></textarea>";
+                            } else {
+                                echo "<input class='form-item' type='text' name='$key'>";
+                            }
                             break;
                         
                         default:

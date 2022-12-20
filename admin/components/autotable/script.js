@@ -30,12 +30,17 @@ window.addEventListener('DOMContentLoaded', function() {
         
                 row.querySelectorAll('[data-field]').forEach(element => {
                     let f = element.getAttribute('data-field');
-                    fields[f] = element.textContent.replace(/ /g,'').replace(/\n/g,'');
+                    fields[f] = element.textContent.replace(/\n/g,'').trim();
                 })
         
                 inputs.forEach(input => {
                     let f = input.getAttribute('name');
-                    input.value = fields[f] == 'NULL' ? '' : fields[f];
+
+                    if(input.type == 'checkbox'){
+                        input.checked = fields[f] == 0 ? false : true;
+                    } else {
+                        input.value = fields[f] == 'NULL' ? '' : fields[f];
+                    }
                 });
             } 
         },

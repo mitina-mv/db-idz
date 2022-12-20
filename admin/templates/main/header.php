@@ -21,3 +21,18 @@ foreach($config['menu'] as $menu){
 
 </head>
 <body>
+
+<header>
+    <div class="menu">
+        <span class="menu__burger">Меню</span>
+
+        <nav class='main-menu'>
+            <?php 
+                foreach($arSiteMenu[$config['menu']['top']] as $item):?>
+                    <a class='main-menu__item <?if($item['link'] == $_SERVER['REQUEST_URI']) echo 'selected'?>' href="<?=$item['link']?>">
+                        <?=$item['title']?>
+                    </a>
+            <?php endforeach;?>
+        </nav>
+    </div>
+</header>

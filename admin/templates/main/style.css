@@ -68,8 +68,45 @@ form.table-form {
     gap: 5px;
 }
 
-input[type=text], input[type=number], input[type=date] {
+input[type=text], input[type=number], input[type=date], textarea {
     padding: 8px;
     border: 1px solid #ccc;
     border-radius: 10px;
+    max-width: 400px;
+}
+
+/* menu */
+
+.menu__burger {
+    background: #265bd6;
+    padding: 10px;
+    display: block;
+    width: fit-content;
+    position: fixed;
+    color: #fff;
+    font-weight: 800;
+    letter-spacing: 2px;
+    left: 20px;
+    top: 20px;
+    border-radius: 10px;
+    user-select: none;
+}
+
+a.main-menu__item {
+    width: 100%;
+    color: #282828;
+}
+
+nav.main-menu {
+    position: fixed;
+    gap: 8px;
+    width: fit-content;
+    padding: 20px;
+    background: #edfbff;
+    top: 70px;
+    left: 20px;
+    display: none;
+}
+nav.main-menu.active {
+    display: grid;
 }
