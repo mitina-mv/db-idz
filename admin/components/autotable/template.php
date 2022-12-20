@@ -142,7 +142,7 @@
                             break;
 
                         case 'character varying':
-                            if(strpos($key, '_text') !== false || strpos($key, '_name') !== false) {
+                            if(strpos($key, '_text') !== false || strpos($key, '_description') !== false) {
                                 echo "<textarea class='form-item' name='$key'></textarea>";
                             } else {
                                 echo "<input class='form-item' type='text' name='$key'>";
