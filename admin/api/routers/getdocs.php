@@ -19,7 +19,11 @@ function madeReportByTestlog($fData) {
     try{
         $query = 'SELECT * FROM testlog WHERE user_id=:student AND testlog_date=:dateTest AND test_id=:test';
         $data = $pdo->prepare($query);
-        $data->execute($fData);
+        $data->execute([
+            'student' => $fData['student'],
+            'dateTest' => $fData['dateTest'],
+            'test' => $fData['test'],
+        ]);
         $testlog = $data->fetchAll();
 
         if(count($testlog) > 1){
@@ -132,7 +136,7 @@ function madeReportByTestlog($fData) {
 
         $mpdf->Output($_SERVER['DOCUMENT_ROOT'] . "/upload/reports/user".$fData['curUser']."_report1_student".$fData['student'].".pdf", \Mpdf\Output\Destination::FILE);
 
-    echo json_decode([
+    return [
         'file' => "/upload/reports/user".$fData['curUser']."_report1_student".$fData['student'].".pdf"
-    ]);
+    ];
 }
