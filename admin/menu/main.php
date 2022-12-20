@@ -47,17 +47,5 @@ $arSiteMenu['main'] = [
     [
         'title' => 'Дисциплины',
         'link' => '/pages/discipline/discipline_id/'
-    ],
-    [
-        'title' => 'Фиксирование ответов',
-        'link' => '/pages/fixanswer/answer_id/'
-    ],
-    [
-        'title' => 'Связь преподает дисциплину',
-        'link' => '/pages/profess/user_id/'
-    ],
-    [
-        'title' => 'Связь преподает группе',
-        'link' => '/pages/profess/user_id/'
-    ],
+    ]
 ];

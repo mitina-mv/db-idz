@@ -28,7 +28,7 @@ if($_POST['dateTest']) {
         $error = $e->getMessage();
     }
 
-    $_POST = [];
+    unset($_POST['dateTest']);
 } 
 
 
@@ -93,6 +93,6 @@ $tests = $data->fetchAll();
         <input type="date" name="dateTest">
     </div>
 
-    <button type="submit">Добавить</button>
-    <button type="reset">Сбросить</button>
+    <button class='btn btn_success' type="submit">Добавить</button>
+    <button class='btn btn_danger' type="reset">Сбросить</button>
 </form>

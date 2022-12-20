@@ -3,3 +3,4 @@ admin/composer/vendor/
 *.woff2
 *.ttf
 admin/assets/hystmodal/
+upload/
