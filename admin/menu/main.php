@@ -1,6 +1,14 @@
 <?php
 $arSiteMenu['main'] = [
     [
+        'title' => '<b>Отчеты</b>',
+        'link' => '/reports/'
+    ],
+    [
+        'title' => '<b>Вызов процедуры</b>',
+        'link' => '/procedure/'
+    ],
+    [
         'title' => 'Пользователи',
         'link' => '/pages/user/user_id/'
     ],
