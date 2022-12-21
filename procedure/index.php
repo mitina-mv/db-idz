@@ -27,8 +27,6 @@ if($_POST['dateTest']) {
     } catch (PDOException $e) {
         $error = $e->getMessage();
     }
-
-    unset($_POST['dateTest']);
 } 
 
 

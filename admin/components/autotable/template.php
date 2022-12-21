@@ -1,6 +1,4 @@
 <?php 
-    // require_once(__DIR__ . '/sctipt.js');
-
     $arBadNames = ['user', 'order'];
     GLOBAL $arParams;
 

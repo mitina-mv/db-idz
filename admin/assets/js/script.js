@@ -142,7 +142,7 @@ window.addEventListener('DOMContentLoaded', () => {
                 .then(data => {
                     let file = getElement('a', ['file'], {
                         href: data.file,
-                        download: true,
+                        download: data.file,
                         textContent: 'Скачать отчет'
                     });
 
