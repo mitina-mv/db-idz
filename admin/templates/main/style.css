@@ -68,7 +68,7 @@ form.table-form {
     gap: 5px;
 }
 
-input[type=text], input[type=number], input[type=date], textarea {
+input[type=text], input[type=number], input[type=date], textarea, select {
     padding: 8px;
     border: 1px solid #ccc;
     border-radius: 10px;
@@ -109,4 +109,14 @@ nav.main-menu {
 }
 nav.main-menu.active {
     display: grid;
+}
+
+/* form add test  */
+.addtest {
+    grid-column: 2;
+    padding-top: 100px;
+}
+
+.addtest .form-item {
+    padding: 5px;
 }

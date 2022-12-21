@@ -1,11 +1,8 @@
 <?php
 header('Access-Control-Allow-Methods: GET, POST, PUT');
 
-// Подключаем библиотеки и хелперы
-// include_once 'lib/underscore.php';
+include_once($_SERVER['DOCUMENT_ROOT'] . '/admin/init.php');
 include_once 'helpers/query.php';
-// include_once 'helpers/files.php';
-// session_start();
 
 // Получаем данные из запроса
 $data = \Helpers\query\getRequestData();
@@ -19,10 +16,6 @@ if (\Helpers\query\isValidRouter($router)) {
 
     // Запускаем главную функцию
     route($data);
-
-    // TODO удалить, когда заработют нормальные ответы
-    setcookie('query_error', '', 0, "/");
-
 } else {
     // Выбрасываем ошибку
     \Helpers\query\throwHttpError('invalid_router', 'router not found');

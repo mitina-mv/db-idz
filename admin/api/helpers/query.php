@@ -76,6 +76,7 @@ function connectDB() {
 function isValidRouter($router) {
     return in_array($router, array(
         'table',
+        'getdocs'
     ));
 }
 
@@ -90,33 +91,11 @@ function isExistsNodeById($pdo, $id, $fId, $table) {
     return count($data->fetchAll()) === 1;
 }
 
-// Проверка, существует ли оценкка для поста
-function isExistsRatingByPostAndUser($pdo, $postID, $userID) {
-    $query = 'SELECT rating_id FROM rating WHERE photo_id=? AND user_id=?';
-    $data = $pdo->prepare($query);
-    $data->execute([$postID, $userID]);
-
-    return count($data->fetchAll()) === 1;
-}
-
-// Проверка, существует ли пользователь с таким логином
-function isExistsUserByLogin($pdo, $login) {
-    $query = 'SELECT user_login FROM "user" WHERE user_login=:login';
-    $data = $pdo->prepare($query);
-    $data->bindParam(':login', $login);
-    $data->execute();
-
-    return count($data->fetchAll()) === 1;
-}
-
-
 // Выводим 400 ошибку http-запроса
 function throwHttpError($code, $message, $header = '400 Bad Request') {
     header($_SERVER["SERVER_PROTOCOL"] . " " . $header);
-    // TODO - старт сессии ограничивает отправку ответа, запрос не завершается
-    // Удрать setcookie
-    setcookie('query_error', json_encode([
+    echo json_encode(array(
         'code' => $code,
         'message' => $message
-    ]), 0, "/");
+    ));
 }

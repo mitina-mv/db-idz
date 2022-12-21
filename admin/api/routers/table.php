@@ -21,38 +21,6 @@ function route($data) {
         exit;
     }
 
-    // POST /photo
-    if ($data['method'] === 'POST') {
-        echo json_encode(addPhoto($data['formData']));
-        exit;
-    }
-
-    // PUT /photo/5
-    if ($data['method'] === 'PUT' && count($data['urlData']) === 2 && isset($data['formData']['title'])) {
-        $id = (int)$data['urlData'][1];
-        $title = $data['formData']['title'];
-
-        echo json_encode(updatePhoto($id, $title));
-        exit;
-    }
-
-    // DELETE /photo/5
-    if ($data['method'] === 'DELETE' && count($data['urlData']) === 2) {
-        $id = (int)$data['urlData'][1];
-
-        echo json_encode(deletePhoto($id));
-        exit;
-    }
-    print_r($data['formData']);
-    // DELETE /photo/
-    if ($data['method'] === 'DELETE' && count($data['urlData']) === 1) {
-        // $id = (int)$data['urlData'][1];
-
-        // echo json_encode(deleteNodes($id));
-        exit;
-    }
-
-
     // Если ни один роутер не отработал
     \Helpers\query\throwHttpError('invalid_parameters', 'invalid parameters');
 

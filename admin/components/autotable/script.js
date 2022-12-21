@@ -174,10 +174,7 @@ window.addEventListener('DOMContentLoaded', function() {
                 }
             })
             .catch((error) => {
-                // let cookie = decodeURIComponent(getCookie('query_error'));
-                // let errorMessage = cookie ? JSON.parse(cookie).message : 'Ошибка при попытке удалить пост.';
-
-                // showUserMessage('Ошибка', errorMessage, 'error');
+                showUserMessage('Ошибка', error.message, 'error');
             })
     })
 })

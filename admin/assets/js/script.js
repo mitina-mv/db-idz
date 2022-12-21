@@ -127,4 +127,33 @@ window.addEventListener('DOMContentLoaded', () => {
     btnMenu.addEventListener('click', () => {
         document.querySelector('.main-menu').classList.toggle('active')
     })
+
+    let btnGetDoc = document.querySelector('#btnGetDoc');
+    if(btnGetDoc) {
+        btnGetDoc.addEventListener('click', (e) => {
+            e.preventDefault();
+
+            let fData = new FormData(document.querySelector('#getreport1'));
+
+            fData.append('curUser', 1);
+            fData.append('doc', 'report1');
+
+            postData('/admin/api/getdocs', fData, {})
+                .then(data => {
+                    let file = getElement('a', ['file'], {
+                        href: data.file,
+                        download: data.file,
+                        textContent: 'Скачать отчет'
+                    });
+
+                    console.log(file);
+                    console.log(data.file);
+
+                    document.body.append(file);
+                })
+                .catch((error) => {
+                    showUserMessage('Ошибка', error.message, 'error');
+                })
+        })
+    }
 })
